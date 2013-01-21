@@ -19,3 +19,7 @@ def euler002(maxn):
             return sum
         if fib % 2 == 0 :
             sum += fib
+
+
+def euler003(test):
+    pass
