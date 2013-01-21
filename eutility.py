@@ -20,6 +20,7 @@ def memoize(f):
 
 @memodict
 def fibonacci(n):
+    ''' Returns n values of the fibonacci sequence.'''
     if n < 2:
         return n
     else:
