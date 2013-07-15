@@ -15,22 +15,25 @@ def euler004(digits):
 
     >>> euler004(3)
     906609
-    '''
 
+    >>> euler004(4)
+    99000099
+
+    >>> euler004(5)
+    9966006699L
+
+    >>> euler004(6)
+    999000000999L
+    '''
     for i in xrange(10 ** digits-1, 0, -1):
         r = xrange(10 ** digits-1, i-1, -1)
         try:
             return max(j * k for j, k in
                        takewhile(lambda x: x[0] >= x[1], izip(r, reversed(r)))
-                       if palindrome(str(j * k)) and not j % 11)
+                       if palindrome(str(j * k)))
         except ValueError:
             pass
 
-def test_euler004():
-    results = [None, 9, 9009, 906609, 99000099, 9966006699L, 999000000999L, 99956644665999L]
-    for i in range(8):
-        assert euler004(i) == results[i]
-    print 'passed all tests!'
 
 def euler004a(digits):
     ''' Largest palindrome product
