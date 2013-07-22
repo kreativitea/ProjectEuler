@@ -12,4 +12,4 @@ def euler003(n):
     for i in primes(2000): # checks up to 2000 primes
         if n % i == 0:
             n = n/i
-    return n
+    return int(n)
