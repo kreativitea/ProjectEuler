@@ -15,19 +15,19 @@ def genprime():
     c = 9
     ps = (p for p in genprime())
     p = ps.next() and ps.next()
-    q = p*p
+    q = p * p
     while True:
         if c not in D:
             if c < q: yield c
             else:
-                _add(D,c + 2*p,2*p)
-                p=ps.next()
-                q=p*p
+                _add(D, c + 2*p, 2*p)
+                p = ps.next()
+                q = p * p
         else:
             s = D.pop(c)
-            _add(D,c + s,s)
+            _add(D, c + s, s)
         c += 2
 
-def _add(D,x,s):
+def _add(D, x, s):
   while x in D: x += s
   D[x] = s

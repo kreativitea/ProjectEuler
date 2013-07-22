@@ -14,6 +14,7 @@ def fibonacci(n):
 def primes(n):
     ''' written by Robert William Hanks
     http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
+    
     >>> primes(10)
     [2, 3, 5, 7]
     >>> primes(75)
@@ -169,8 +170,11 @@ def return_letter(a):
     1
     >>> return_letter('Z')
     26
-    >>> return_letter('!')
-    -1
+    >>> try:
+    ...     return_letter('!')
+    ... except TypeError:
+    ...     print "TypeError"
+    TypeError
     '''
     n = ord(a.upper())-ord('A')+1
     if 0 < n < 27:
@@ -194,7 +198,6 @@ def factorial(n):
     120
     >>> factorial(7)
     5040
-
     '''
     return math.factorial(n)
 
