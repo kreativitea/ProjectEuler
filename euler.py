@@ -178,7 +178,7 @@ def problem015():
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]
     while True:
-        p = raw_input("Which problem would you like to run?: ")
+        p = raw_input("Which problem would you like to run?: ").strip()
         
         # exit condition
         if p == 'exit':
@@ -192,7 +192,7 @@ if __name__ == "__main__":
         
         else:
             # pick a single problem to run
-            p = ''.join(['problem', p.zfill(3)])
+            p = 'problem{}'.format(p.zfill(3))
             if p in _problems:
                 print '\n'
                 eval('{}()'.format(p))

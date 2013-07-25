@@ -11,10 +11,10 @@ def fibonacci(n):
     else:
         return fibonacci(n-1) + fibonacci(n-2)
 
-
+# written by Robert William Hanks
+# http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
 def primes(n):
-    ''' written by Robert William Hanks
-    http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
+    ''' Generates all the prime numbers up to n.
     
     >>> primes(10)
     [2, 3, 5, 7]

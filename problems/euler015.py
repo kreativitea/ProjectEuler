@@ -4,9 +4,14 @@ def euler015(n):
     Starting in the top left corner of a 2 x 2 grid, there are 6 routes 
     (without backtracking) to the bottom right corner.
 
-    How many routes are there through a 20 x 20 grid? '''
+    How many routes are there through a 20 x 20 grid? 
+    
+    >>> euler015(2)
+    6
+    >>> euler015(20)
+    137846528820L
+    '''
     matrix = [[0 for i in xrange(n+1)] for i in xrange(n+1)]
-
 
     for i in xrange(n+1):
         for j in xrange(n+1):
