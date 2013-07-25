@@ -1,4 +1,4 @@
-from eutility.eumath import primes
+from eutility.eumath import prime_factors
 
 
 def euler003(n):
@@ -9,7 +9,4 @@ def euler003(n):
     >>> print euler003(600851475143)
     6857
     '''
-    for i in primes(2000): # checks up to 2000 primes
-        if n % i == 0:
-            n = n/i
-    return int(n)
+    return max(int(i) for i in prime_factors(600851475143))

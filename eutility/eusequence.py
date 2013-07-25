@@ -31,3 +31,13 @@ def genprime():
 def _add(D, x, s):
   while x in D: x += s
   D[x] = s
+
+
+def gentriangle():
+    ''' Yields triangle numbers indefinitely. '''
+    triangle = 0
+    i = 1
+    while True:
+        triangle = triangle + i
+        i += 1
+        yield triangle

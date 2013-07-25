@@ -1,6 +1,7 @@
 from eutility import memodict
 import math
 import operator
+from operator import mul
 
 @memodict
 def fibonacci(n):
