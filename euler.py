@@ -174,6 +174,28 @@ def problem015():
         return euler015(n)
 
 
+def problem016():
+    from problems.euler016 import euler016
+    printdoc(euler016)
+
+    with readfile('euler016.txt') as f:
+        exp = int(f.next())
+
+    with timer():
+        return euler016(exp)
+
+
+def problem017():
+    from problems.euler017 import euler017
+    printdoc(euler017)
+
+    with readfile('euler017.txt') as f:
+        start = int(f.next())
+        end = int(f.next())
+
+    with timer():
+        return euler017(start, end)
+
 
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]

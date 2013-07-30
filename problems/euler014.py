@@ -24,7 +24,8 @@ def euler014(limit):
     # Quite inefficient, takes some time.  May need to be recoded.
 
     >>> problem014(1000000)
-    837799 '''
+    837799
+    '''
 
     # result: unit, length
     Collatz = namedtuple("Col", "res, len")
