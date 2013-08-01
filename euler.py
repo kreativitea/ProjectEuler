@@ -197,6 +197,39 @@ def problem017():
         return euler017(start, end)
 
 
+def problem018():
+    from problems.euler018 import euler018
+    printdoc(euler018)
+
+    with readfile('euler018.txt') as f:
+        triangle = matrix(f, int)
+
+    with timer():
+        return euler018(triangle)
+
+
+def problem019():
+    from problems.euler019 import euler019
+    printdoc(euler019)
+
+    with readfile('euler019.txt') as f:
+        dates = matrix(f, int)
+
+    with timer():
+        return euler019(dates[0], dates[1])
+
+
+def problem020():
+    from problems.euler020 import euler020
+    printdoc(euler020)
+
+    with readfile('euler020.txt') as f:
+        n = int(f.next())
+
+    with timer():
+        return euler020(n)
+
+
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]
     while True:
