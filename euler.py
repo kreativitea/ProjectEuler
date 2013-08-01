@@ -230,10 +230,21 @@ def problem020():
         return euler020(n)
 
 
+def problem021():
+    from problems.euler021 import euler021
+    printdoc(euler021)
+
+    with readfile('euler021.txt') as f:
+        limit = int(f.next())
+
+    with timer():
+        return euler021(limit)
+
+
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]
     while True:
-        p = raw_input("Which problem would you like to run?: ").strip()
+        p = raw_input("Which problem would you like to run? (Type 'exit' to exit): ").strip()
         
         # exit condition
         if p == 'exit':

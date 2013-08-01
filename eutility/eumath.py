@@ -98,7 +98,7 @@ def prime_factors(n):
     return [n]
 
 
-def divisors(n):
+def divisors(n, inclusive=True):
     ''' Generates all divisors, unordered. 
 
     >>> list(divisors(12))
@@ -106,23 +106,31 @@ def divisors(n):
     >>> list(divisors(256))
     [1, 2, 4, 8, 16, 32, 64, 128, 256]
     '''
-    factors = prime_factors(n)
-    ps = sorted(set(factors))
-    omega = len(ps)
+    if n == 1:
+        yield 1
 
-    def rec_gen(n=0):
-        if n == omega:
-            yield 1
-        else:
-            pows = [1]
-            for j in xrange(factors.count(ps[n])):
-                pows += [pows[-1] * ps[n]]
-            for q in rec_gen(n + 1):
-                for p in pows:
-                    yield p * q
+    else:
+        factors = prime_factors(n)
+        ps = sorted(set(factors))
+        omega = len(ps)
 
-    for p in rec_gen():
-        yield p
+        def divisor_generator(n=0):
+            if n == omega:
+                yield 1
+            else:
+                pows = [1]
+                for j in xrange(factors.count(ps[n])):
+                    pows += [pows[-1] * ps[n]]
+                for q in divisor_generator(n + 1):
+                    for p in pows:
+                        yield p * q
+    
+        for p in divisor_generator():
+            if inclusive:
+                yield p
+            if not inclusive:
+                if p != n:
+                    yield p
 
 
 def is_prime(n):
