@@ -166,7 +166,7 @@ def collatz_list(n):
     return length, p
 
 
-def return_letter(a):
+def letter(a):
     ''' Returns the alphabetical position of a; e.g. A = 1, B = 2.
     Accepts both upper and lower case letters. 
     Raises a type error if not a letter.

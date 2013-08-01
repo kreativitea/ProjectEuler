@@ -2,6 +2,7 @@ from eutility.eutility import timer
 from eutility.fileops import readfile
 from eutility.fileops import printdoc
 from eutility.fileops import matrix
+from eutility.fileops import readcsv
 
 
 # This is a list of solved problems.  
@@ -239,6 +240,17 @@ def problem021():
 
     with timer():
         return euler021(limit)
+
+
+def problem022():
+    from problems.euler022 import euler022
+    printdoc(euler022)
+
+    with readfile('euler022.txt') as f:
+        data = readcsv(f.next(), fn=lambda x: x.strip('"'))
+
+    with timer():
+        return euler022(data)
 
 
 if __name__ == "__main__":

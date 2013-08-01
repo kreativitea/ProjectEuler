@@ -19,7 +19,13 @@ def printdoc(fn):
         else:
             break
 
-def matrix(f, fn):
+def matrix(f, fn=lambda x: x):
     ''' Converts a matrix of space-seperated numbers into a list of lists.
     fn is the function that you call on each item in the matrix (e.g. int) '''
     return [[fn(i) for i in j] for j in [i.split() for i in f]]
+
+def readcsv(line, fn=lambda x: x):
+    ''' Converts a CSV line into a list of objects.
+    fn is the function that will be called on each item in the matrix. '''
+
+    return [fn(i) for i in line.split(',')]
