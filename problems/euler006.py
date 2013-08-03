@@ -18,6 +18,6 @@ def euler006(n):
     >>> euler006(100)
     25164150
     '''
-    sum_square = sum([i * i for i in xrange(1, n+1)])
+    sum_square = sum(i * i for i in xrange(1, n+1))
     square_sum = sum(xrange(1, n+1)) ** 2
     return square_sum - sum_square 

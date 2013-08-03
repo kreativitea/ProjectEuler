@@ -1,6 +1,6 @@
 from eutility.eumath import divisors
 from eutility.eusequence import gentriangle
-
+from itertools import dropwhile
 
 def euler012(n):
     ''' Highly divisible triangular number
@@ -26,6 +26,17 @@ def euler012(n):
     >>> euler012(5)
     28
     >>> euler012(500)
+    76576500
+    '''
+    return dropwhile(lambda x: len(list(divisors(x))) <= n, gentriangle()).next()
+
+
+def euler012b(n):
+    ''' Original version of above function.
+
+    >>> euler012b(5)
+    28
+    >>> euler012b(500)
     76576500
     '''
     t = gentriangle()

@@ -13,5 +13,4 @@ def euler010(limit):
     >>> euler010(2000000)
     142913828922L
     '''
-    primes = genprime()
-    return sum(takewhile(lambda x: x < limit, primes))
+    return sum(takewhile(lambda x: x < limit, genprime()))

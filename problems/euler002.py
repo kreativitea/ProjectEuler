@@ -19,5 +19,4 @@ def euler002(maxterm):
     >>> euler002(4000000)
     4613732
     '''
-    fib = fibonacci()
-    return sum(ifilter(even, takewhile(lambda x: x < maxterm, fib)))
+    return sum(ifilter(even, takewhile(lambda x: x < maxterm, fibonacci())))

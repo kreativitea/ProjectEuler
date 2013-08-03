@@ -9,4 +9,4 @@ def euler003(n):
     >>> print euler003(600851475143)
     6857
     '''
-    return max(int(i) for i in prime_factors(600851475143))
+    return max(int(i) for i in prime_factors(n))

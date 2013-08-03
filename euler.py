@@ -253,6 +253,39 @@ def problem022():
         return euler022(data)
 
 
+def problem023():
+    from problems.euler023 import euler023
+    printdoc(euler023)
+
+    with readfile('euler023.txt') as f:
+        limit = int(f.next())
+
+    with timer():
+        return euler023(limit)
+
+
+def problem024():
+    from problems.euler024 import euler024
+    printdoc(euler024)
+
+    with readfile('euler024.txt') as f:
+        n = int(f.next())
+        digits = int(f.next())
+
+    with timer():
+        return euler024(n, digits)
+
+
+def problem025():
+    from problems.euler025 import euler025
+    printdoc(euler025)
+
+    with readfile('euler025.txt') as f:
+        length = int(f.next())
+
+    with timer():
+        return euler025(length)
+
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]
     while True:

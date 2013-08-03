@@ -1,3 +1,7 @@
+from itertools import count
+from eumath import divisors
+
+
 def genfib():
     ''' Yields fibonacci numbers indefinitely. '''
     x, y = 0, 1
@@ -41,3 +45,11 @@ def gentriangle():
         triangle = triangle + i
         i += 1
         yield triangle
+
+
+def abundant():
+    c = count(1)
+    while True:
+        i = c.next()
+        if i < sum(divisors(i, inclusive=False)):
+            yield i
