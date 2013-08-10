@@ -48,6 +48,7 @@ def gentriangle():
 
 
 def abundant():
+    ''' Yields abundant numbers indefinitely. '''
     c = count(1)
     while True:
         i = c.next()

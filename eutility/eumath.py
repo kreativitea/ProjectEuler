@@ -15,7 +15,9 @@ def fibonacci(n):
 # http://stackoverflow.com/questions/2068372/fastest-way-to-list-all-primes-below-n-in-python/3035188#3035188
 def primes(n):
     ''' Generates all the prime numbers up to n.
-    
+
+    >>> primes(7)
+    [2, 3, 5]
     >>> primes(10)
     [2, 3, 5, 7]
     >>> primes(75)
@@ -134,36 +136,18 @@ def divisors(n, inclusive=True):
 
 
 def is_prime(n):
-    ''' Returns true if n is prime. '''
-    primes = return_primes_list(n)
-    if n in primes:
+    ''' Returns true if n is prime.
+    
+    >>> is_prime(11)
+    True
+    >>> is_prime(12)
+    False
+    '''
+    p = primes(n+1)
+    if n in p:
         return True
     else:
         return False
-
-
-def collatz(n):
-    length = 1
-    while n != 1:
-        if even(n):
-            n = n/2
-        else:
-            n = 3 * n + 1
-        length += 1
-    return length
-
-
-def collatz_list(n):
-    length = 1
-    p = []
-    while n != 1:
-        if even(n):
-            n = n/2
-        else:
-            n = 3 * n + 1
-        length += 1
-        p.append(n)
-    return length, p
 
 
 def letter(a):
@@ -171,16 +155,16 @@ def letter(a):
     Accepts both upper and lower case letters. 
     Raises a type error if not a letter.
 
-    >>> return_letter('a')
+    >>> letter('a')
     1
-    >>> return_letter('z')
+    >>> letter('z')
     26
-    >>> return_letter('A')
+    >>> letter('A')
     1
-    >>> return_letter('Z')
+    >>> letter('Z')
     26
     >>> try:
-    ...     return_letter('!')
+    ...     letter('!')
     ... except TypeError:
     ...     print "TypeError"
     TypeError
@@ -223,3 +207,30 @@ def stringbin(n):
     '1010'
     '''
     return bin(n)[2:]
+
+
+# written by Richard P Brent
+# http://en.wikipedia.org/wiki/Floyd%27s_cycle-finding_algorithm#Tortoise_and_hare
+def cycle(f, x0):
+    # main phase: search successive powers of two
+    power = lam = 1
+    tortoise = x0
+    hare = f(x0)  # f(x0) is the element/node next to x0.
+    while tortoise != hare:
+        if power == lam:  # time to start a new power of two?
+            tortoise = hare
+            power *= 2
+            lam = 0
+        hare = f(hare)
+        lam += 1
+    # Find the position of the first repetition of length lambda
+    mu = 0
+    tortoise = hare = x0
+    for i in range(lam):
+    # range(lam) produces a list with the values 0, 1, ... , lam-1
+        hare = f(hare)
+    while tortoise != hare:
+        tortoise = f(tortoise)
+        hare = f(hare)
+        mu += 1
+ 
