@@ -15,5 +15,4 @@ def euler007(n):
     >>> euler007(10001)
     104743
     '''
-    g = genprime()
-    return islice(g, n-1, n).next()
+    return islice(genprime(), n-1, n).next()
