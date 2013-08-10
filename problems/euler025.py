@@ -29,4 +29,3 @@ def euler025(length):
     for index, value in enumerate(fibonacci()):
         if len(str(value)) >= length:
             return index
-
