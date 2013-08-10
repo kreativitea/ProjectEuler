@@ -26,5 +26,3 @@ def euler023(limit):
     Find the sum of all the positive integers which 
     cannot be written as the sum of two abundant numbers. '''    
     return sum(set(xrange(limit)) - set(sum(x) for x in product(takewhile(lambda x: x < limit, abundant()), repeat=2)))
-
-candidates = set(sum(x) for x in product(takewhile(lambda x: x < limit, abundant()), repeat=2))
