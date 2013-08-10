@@ -8,32 +8,6 @@ from collections import defaultdict
 import eutility as eul
 
 
-               
-
-def problem025(len_n):
-    """The Fibonacci sequence is defined by the recurrence relation:
-
-    Fn = Fn1 + Fn2, where F1 = 1 and F2 = 1.
-    Hence the first 12 terms will be:
-
-    F1 = 1
-    F2 = 1
-    F3 = 2
-    
-    F10 = 55
-    F11 = 89
-    F12 = 144
-    The 12th term, F12, is the first term to contain three digits.
-
-    What is the first term in the Fibonacci sequence to contain 1000 digits?
-    >>> problem025(1000)
-    ... 4782 """
-    n = [1, 2]
-    while len(str(n[-1])) < len_n:
-        n.append(n[-1] + n[-2])
-    return len(n)+1
-
-
 def problem026(maxd):
     """ A unit fraction contains 1 in the numerator. 
     
@@ -60,7 +34,7 @@ def problem026(maxd):
 
 
 def problem028(n):
-    """  Starting with the number 1 and moving to the right in a clockwise direction a 
+    '''  Starting with the number 1 and moving to the right in a clockwise direction a 
     5 by 5 spiral is formed as follows:
 
      21 22 23 24 25
@@ -71,7 +45,7 @@ def problem028(n):
 
     It can be verified that the sum of the numbers on the diagonals is 101.
 
-    What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way? """
+    What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way? '''
     n = (n-1)/2
     return sum([sum(range((r*2+1)**2-(r*2)*3, ((r*2+1)**2)+1, r*2)) for r in range(1, n+1)])+1
 
