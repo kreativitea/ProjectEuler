@@ -286,15 +286,35 @@ def problem025():
     with timer():
         return euler025(length)
 
+
+def problem030():
+    from problems.euler030 import euler030
+    printdoc(euler030)
+
+    with readfile('euler030.txt') as f:
+        power = int(f.next())
+
+    with timer():
+        return euler030(power)
+
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]
     while True:
-        p = raw_input("Which problem would you like to run? (Type 'exit' to exit): ").strip()
+        p = raw_input("Which problem would you like to run? (Type 'help' for help): ").strip()
         
         # exit condition
         if p == 'exit':
             break
         
+        elif p == 'list':
+            print _problems
+
+        elif p == 'help':
+            print ('\n'
+                   'exit:  exits the program.\n'
+                   'list:  lists all problems.\n'
+                   'all:   runs all problems.\n')
+
         # run all problems
         elif p == 'all':
             for p in _problems:
@@ -302,13 +322,23 @@ if __name__ == "__main__":
                 eval('{}()'.format(p))
         
         else:
-            # pick a single problem to run
-            p = 'problem{}'.format(p.zfill(3))
+            # account for format '13' or 'problem013'
             if p in _problems:
-                print '\n'
-                eval('{}()'.format(p))
-                print '\n'
+                prob = p
             else:
-                print 'This problem ({}) has not yet been added to the solutions list.'.format(p)
-                print 'Please choose again.\n'
+                prob = 'problem{}'.format(p.zfill(3))
+
+            # run the problem itself
+            if prob in _problems:
+                print '\n'
+                eval('{}()'.format(prob))
+                print '\n'
+
+            else:
+                try:
+                    int(p)
+                    print 'This problem ({}) has not yet been added to the solutions list.'.format(prob)
+                    print 'Please choose again.\n'
+                except:
+                    print "I'm sorry, '{}' is not a valid command.  Please try again.".format(p)
     
