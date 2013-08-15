@@ -297,6 +297,17 @@ def problem030():
     with timer():
         return euler030(power)
 
+
+def problem036():
+    from problems.euler036 import euler036ti
+    printdoc(euler036)
+
+    with radfile('euler036.txt') as f:
+        limit = int(f.next())
+
+    with timer():
+        return euler036(limit)
+
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]
     while True:
