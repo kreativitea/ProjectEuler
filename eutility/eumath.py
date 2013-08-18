@@ -2,6 +2,7 @@ from eutility import memodict
 import math
 import operator
 from operator import mul
+from collections import deque
 
 @memodict
 def fibonacci(n):
@@ -234,3 +235,10 @@ def cycle(f, x0):
         hare = f(hare)
         mu += 1
  
+
+def rotate(n):
+    ''' Yields all rotations of a particular integer. '''
+    n = deque(str(n))
+    for i in xrange(len(n)-1):
+        n.rotate()
+        yield int(''.join(n))

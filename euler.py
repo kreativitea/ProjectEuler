@@ -321,6 +321,16 @@ def problem030():
         return euler030(power)
 
 
+def problem035():
+    from problems.euler035 import euler035
+    printdoc(euler035)
+
+    with readfile('euler035.txt') as f:
+        limit = int(f.next())
+
+    with timer():
+        return euler035(limit)
+
 def problem036():
     from problems.euler036 import euler036ti
     printdoc(euler036)
@@ -330,6 +340,7 @@ def problem036():
 
     with timer():
         return euler036(limit)
+
 
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]

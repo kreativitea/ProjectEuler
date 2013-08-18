@@ -16,11 +16,11 @@ def euler005(n):
     232792560
     '''
     start = 1
-    multiply = range(2, n+1) # steps through each integer in the range.
+    multiply = range(2, n+1)  # steps through each integer in the range.
     for i in multiply:
         if start % i != 0: 
             try:
-                start = start * list(divisors(i))[1] # multiplies by the smallest factor
+                start = start * list(divisors(i))[1]  # multiplies by the smallest factor
             except IndexError:
-                start = start * i # if is prime, multiply by that number
+                start = start * i  # if is prime, multiply by that number
     return start
