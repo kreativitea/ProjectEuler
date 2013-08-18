@@ -287,6 +287,29 @@ def problem025():
         return euler025(length)
 
 
+def problem028():
+    from problems.euler028 import euler028
+    printdoc(euler028)
+
+    with readfile('euler028.txt') as f:
+        diagonal = int(f.next())
+
+    with timer():
+        return euler028(diagonal)
+
+
+def problem029():
+    from problems.euler029 import euler029
+    printdoc(euler029)
+
+    with readfile('euler029.txt') as f:
+        a = int(f.next())
+        b = int(f.next())
+
+    with timer():
+        return euler029(a, b)
+
+
 def problem030():
     from problems.euler030 import euler030
     printdoc(euler030)
