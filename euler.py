@@ -332,15 +332,25 @@ def problem035():
         return euler035(limit)
 
 def problem036():
-    from problems.euler036 import euler036ti
+    from problems.euler036 import euler036
     printdoc(euler036)
 
-    with radfile('euler036.txt') as f:
+    with readfile('euler036.txt') as f:
         limit = int(f.next())
 
     with timer():
         return euler036(limit)
 
+
+def problem037():
+    from problems.euler037 import euler037
+    printdoc(euler037)
+
+    with readfile('euler037.txt') as f:
+        n = int(f.next())
+
+    with timer():
+        return euler037(n)
 
 if __name__ == "__main__":
     _problems = [fn for fn in dir() if fn.startswith('problem')]
