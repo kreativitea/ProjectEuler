@@ -1,5 +1,9 @@
-def problem026(maxd):
-    """ A unit fraction contains 1 in the numerator. 
+from itertools import count
+from eutility.eutility import Biggest
+from eutility.eumath import primes
+
+def euler026(maxd):
+    ''' A unit fraction contains 1 in the numerator. 
     
     The decimal representation of the unit fractions with denominators 2 to 10 are given
     1/2 = 0.5
@@ -14,15 +18,26 @@ def problem026(maxd):
 
     Where 0.1(6) means 0.166666..., and has a 1-digit recurring cycle. It can be seen that 1/7 has a 6-digit recurring cycle.
 
-    Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part. """
+    Find the value of d < 1000 for which 1/d contains the longest recurring cycle in its decimal fraction part.
+    
+    >>> euler026(10)
+    7
+    >>> euler026(1000)
+    983
+    '''
+    b = Biggest()
+    for p in primes(maxd):
+        b.set(find_repeat(p), p)
+    return b.data
 
-    raise NotImplementedError('solution not working yet')
 
-    threes = range(3, maxd, 3)
-    sevens = range(7, maxd, 7)
-    chklist = set(threes + sevens)
-    chkdict = {}
-    for i in chklist:
-        chkdict[i] = str(1.0 / i)
-
-from decimal import Decimal
+def find_repeat(n):
+    r = 10 
+    checked = {}
+    for i in count(0):
+        if r == 0:
+            return 0
+        elif r in checked:
+            return i-checked[r]
+        checked[r] = i
+        r = 10 * (r % n)
