@@ -242,3 +242,7 @@ def rotate(n):
     for i in xrange(len(n)-1):
         n.rotate()
         yield int(''.join(n))
+
+
+def quadratic(n, a, b):
+    return (n ** 2) + (a * n) + b

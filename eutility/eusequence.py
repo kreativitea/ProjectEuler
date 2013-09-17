@@ -54,3 +54,72 @@ def abundant():
         i = c.next()
         if i < sum(divisors(i, inclusive=False)):
             yield i
+
+
+class Primes(set):
+    def __ge__(self, y):
+        self._set_update(y)
+        return super(Primes, self).__ge__(y)
+
+    def __le__(self, y):
+        self._set_update(y)
+        return super(Primes, self).__le__(y)
+
+    def __gt__(self, y):
+        self._set_update(y)
+        return super(Primes, self).__gt__(y)
+
+    def __lt__(self, y):
+        self._set_update(y)
+        return super(Primes, self).__lt__(y)
+
+    def isdisjoint(self, s):
+        self._set_update(s)
+        return super(Primes, self).isdisjoint(s)
+
+    def issubset(self, s):
+        self._set_update(s)
+        return super(Primes, self).issubset(s)
+
+    def issuperset(self, s):
+        self._set_update(s)
+        return super(Primes, self).issuperset(s)
+
+    def intersection(self, s):
+        self._set_update(s)
+        return super(Primes, self).intersection(s)
+
+    def difference(self, s):
+        self._set_update(s)
+        return super(Primes, self).difference(s)
+
+    def symmetric_difference(self, s):
+        self._set_update(s)
+        return super(Primes, self).symmetric_difference(s)
+
+    def update(self, s):
+        raise NotImplementedError("Primes set does not implement Update")
+
+    def clear(self):
+        raise NotImplementedError("Primes set does not allow deletion")
+
+    def __contains__(self, y):
+        try:
+            assert isinstance(y, int)
+        except AssertionError:
+            raise ValueError("Not an integer")
+
+        while y > self._last:
+            next = self._primes.next()
+            self._last = next
+            self.add(next)
+        return super(Primes, self).__contains__(y)
+
+    def __init__(self, *args):
+        self._primes = genprime()
+        self._last = 0
+        return super(Primes, self).__init__(*args)
+
+    def _set_update(self, s):
+        maxval = max(s)
+        self.__contains__(maxval)
