@@ -57,6 +57,23 @@ def abundant():
 
 
 class Primes(set):
+    ''' The set of all prime numbers.  
+    Automatically updates when you make comparisons.
+    
+    >>> p = Primes()
+    >>> 5 in p
+    True
+    >>> 6 in p
+    False
+    >>> 509 in p
+    True
+    >>> 510 in p
+    False
+    >>> set([5, 1019]) <= p
+    True
+    >>> set([5, 1020]) <= p
+    False
+    '''
     def __ge__(self, y):
         self._set_update(y)
         return super(Primes, self).__ge__(y)

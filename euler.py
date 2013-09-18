@@ -298,6 +298,17 @@ def problem026():
         return euler026(maxn)
 
 
+def problem027():
+    from problems.euler027 import euler027
+    printdoc(euler027)
+
+    with readfile('euler027.txt') as f:
+        limit = int(f.next())
+
+    with timer():
+        return euler027(limit)
+
+
 def problem028():
     from problems.euler028 import euler028
     printdoc(euler028)
