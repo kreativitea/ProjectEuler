@@ -12,12 +12,10 @@ class timer():
     def __init__(self):
         self.start = None
         self.runtime = None
-
     def __enter__(self):
-        self.start = time.clock()
-
+        self.start = time.time()
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.runtime = time.clock() - self.start
+        self.runtime = time.time() - self.start
         print 'This code returned a result in {0:.6f} seconds.'.format(self.runtime)
 
 
