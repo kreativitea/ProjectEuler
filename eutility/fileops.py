@@ -1,8 +1,11 @@
-def readfile(filename):
+import os
+
+
+def data(filename):
     ''' Reads a file in the solution data directory.
     Returns a file object. '''
-    f = open('data\{}'.format(filename))
-    return f
+    return open(os.path.join('data', filename))
+
 
 def printdoc(fn):
     ''' Prints the docstring of a function without the test cases. '''
@@ -12,17 +15,18 @@ def printdoc(fn):
 
     print 'Project Euler Problem {}: {}'.format(fn_name, p_name)
 
-    no_tests = []
     for docline in docstring:
-        if not docline.strip().startswith('>>>'):
+        if not docline.strip().startswith(('>>>')):
             print docline
         else:
             break
+
 
 def matrix(f, fn=lambda x: x):
     ''' Converts a matrix of space-seperated numbers into a list of lists.
     fn is the function that you call on each item in the matrix (e.g. int) '''
     return [[fn(i) for i in j] for j in [i.split() for i in f]]
+
 
 def readcsv(line, fn=lambda x: x):
     ''' Converts a CSV line into a list of objects.
